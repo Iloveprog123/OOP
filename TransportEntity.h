@@ -12,7 +12,7 @@ private:
 public:
 	std::string getID();
 	std::string getLocation();
-	std::string getTime();
+	int getTime();
 	void setID(std::string);
 	void setLocation(std::string);
 	void setTime(std::string);
