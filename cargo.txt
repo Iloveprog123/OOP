@@ -1,0 +1,4 @@
+C001,New York,1030
+C002,Los Angeles,1245
+C003,Chicago,1415
+C004,China,0900

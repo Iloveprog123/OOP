@@ -7,14 +7,15 @@
 class FreightList
 {
 private:
-	std::vector<Freight&> freights;
+	std::vector<Freight> freights;
+	std::string filePath;
 
 public:
-	bool addFreight(Freight&);
+	bool addFreight(Freight);
 	bool deleteFreight(std::string);
 	bool editFreight(std::string, std::string, std::string);
-	std::vector<Freight&> getFreight();
+	std::vector<Freight> getFreight() const;
 	bool loadFromFile(std::string);
-	bool saveToFile(std::string);
+	bool saveToFile(std::string path = "");
 };
 

@@ -1,0 +1,5 @@
+﻿  FreightList.cpp
+  main.cpp
+  Generating Code...
+C:\Users\Bryan\source\repos\1009_Project\FreightList.cpp(57,1): warning C4715: 'FreightList::saveToFile': not all control paths return a value
+  1009_Project.vcxproj -> C:\Users\Bryan\source\repos\1009_Project\x64\Debug\1009_Project.exe

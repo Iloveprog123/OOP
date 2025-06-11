@@ -28,27 +28,36 @@ bool FreightList::loadFromFile(string path) {
 	}
 
 	inputFile.close();
+
+	filePath = path;
 	return true;
 }
 
 bool FreightList::saveToFile(string path) {
-	ofstream outputFile(path);
 
-	if (!outputFile.is_open()) {															//error if unable to open file to save
-		cerr << "Error saving file!" << endl;
-		return false;
+	if (path.empty()) {
+		if (filePath.empty()) {
+			cerr << "No file path specified and no previously loaded file!" << endl;
+			return false;
+		}
+
+		ofstream outputFile(path);
+		if (!outputFile.is_open()) {
+			cerr << "Error saving file!" << endl;
+			return false;
+		}
+
+		for (auto freight : freights) {
+			outputFile << freight.getID() << "," << freight.getLocation() << "," << freight.getTime() << "\n";				//loop through freight vector and save all updated attributes
+		}
+
+		outputFile.close();
+		return true;
 	}
-
-	for (auto freight : freights) {
-		outputFile << freight.getID() << "," << freight.getLocation() << "," << freight.getTime() << "\n";				//loop through freight vector and save all updated attributes
-	}
-
-	outputFile.close();
-	return true;
 }
 
-bool FreightList::addFreight(Freight& freight) {
-	for (auto existing : freights) {			
+bool FreightList::addFreight(Freight freight) {
+	for (auto existing : freights) {
 		if (existing.getID() == freight.getID()) {											//check for duplicate ID and return false to show failure
 			return false;
 		}
@@ -59,7 +68,7 @@ bool FreightList::addFreight(Freight& freight) {
 }
 
 bool FreightList::deleteFreight(string id) {
-	for (auto freightID = freights.begin(); freightID != freights.end(); freightID++) {		
+	for (auto freightID = freights.begin(); freightID != freights.end(); freightID++) {
 		if (freightID->getID() == id) {														//loop through freight vector until ID match
 			freights.erase(freightID);
 			return true;
@@ -79,6 +88,6 @@ bool FreightList::editFreight(string id, string location, string time) {
 	return false;
 }
 
-vector<Freight&> FreightList::getFreight() {
+vector<Freight> FreightList::getFreight() const {
 	return freights;
 }

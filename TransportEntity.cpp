@@ -3,15 +3,15 @@
 
 using namespace std;
 
-string TransportEntity::getID() {
+string TransportEntity::getID() const{
 	return id;
 }
 
-string TransportEntity::getLocation() {
+string TransportEntity::getLocation() const{
 	return location;
 }
 
-string TransportEntity::getTime() {
+string TransportEntity::getTime() const{
 	return time;
 }
 
@@ -26,3 +26,5 @@ void TransportEntity::setLocation(string x) {
 void TransportEntity::setTime(string x) {
 	time = x;
 }
+
+TransportEntity::TransportEntity(string id, string location, string time) : id(id), location(location), time(time) {}
