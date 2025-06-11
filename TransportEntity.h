@@ -10,9 +10,10 @@ private:
 	std::string time;
 
 public:
-	std::string getID();
-	std::string getLocation();
-	std::string getTime();
+	TransportEntity(std::string id, std::string location, std::string time);
+	std::string getID() const;
+	std::string getLocation() const;
+	std::string getTime() const;
 	void setID(std::string);
 	void setLocation(std::string);
 	void setTime(std::string);
