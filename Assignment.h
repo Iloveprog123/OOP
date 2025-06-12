@@ -12,8 +12,8 @@ class Assignment
 
 private:
 	CargoList* cargo;
-	FreightList* freight;																//vector to store freight and cargo already assigned.
-	std::vector<std::pair<Cargo*, Freight*>> assignments;								//stores the pairing
+	FreightList* freight;											//vector to store freight and cargo already assigned.
+	std::vector<std::pair<Cargo*, Freight*>> assignments;							//stores the pairing
 
 public:
 	Assignment(CargoList* c, FreightList* f) : cargo(c), freight(f){}					// constructor
