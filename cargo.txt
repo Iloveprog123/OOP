@@ -2,4 +2,10 @@ C001,New York,1030
 C002,Los Angeles,1245
 C003,Chicago,1415
 C004,China,0900
-C--4,asa,as
+C005,Singapore,0900
+C006,Tokyo,0700
+C007,Barbados,1200
+C008,Laos,1300
+C009,Argentina,1000
+C010,Uruguay,1600
+C011,India,0900

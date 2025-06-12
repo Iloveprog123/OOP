@@ -19,18 +19,22 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Assignment.h" />
     <ClInclude Include="Cargo.h" />
     <ClInclude Include="CargoList.h" />
     <ClInclude Include="Freight.h" />
     <ClInclude Include="FreightList.h" />
+    <ClInclude Include="Scheduler.h" />
     <ClInclude Include="TransportEntity.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Assignment.cpp" />
     <ClCompile Include="Cargo.cpp" />
     <ClCompile Include="CargoList.cpp" />
     <ClCompile Include="Freight.cpp" />
     <ClCompile Include="FreightList.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Scheduler.cpp" />
     <ClCompile Include="TransportEntity.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

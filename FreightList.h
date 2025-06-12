@@ -14,7 +14,7 @@ public:
 	bool addFreight(Freight);
 	bool deleteFreight(std::string);
 	bool editFreight(std::string, std::string, std::string);
-	std::vector<Freight> getFreight() const;
+	const std::vector<Freight>& getFreight() const;
 	bool loadFromFile(std::string);
 	bool saveToFile(std::string path = "");
 };

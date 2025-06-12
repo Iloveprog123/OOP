@@ -53,11 +53,11 @@ bool FreightList::saveToFile(string path) {
 
 		outputFile.close();
 		return true;
-		}
+	}
 }
 
 bool FreightList::addFreight(Freight freight) {
-	for (auto existing : freights) {			
+	for (auto existing : freights) {
 		if (existing.getID() == freight.getID()) {											//check for duplicate ID and return false to show failure
 			return false;
 		}
@@ -68,7 +68,7 @@ bool FreightList::addFreight(Freight freight) {
 }
 
 bool FreightList::deleteFreight(string id) {
-	for (auto freightID = freights.begin(); freightID != freights.end(); freightID++) {		
+	for (auto freightID = freights.begin(); freightID != freights.end(); freightID++) {
 		if (freightID->getID() == id) {														//loop through freight vector until ID match
 			freights.erase(freightID);
 			return true;
@@ -88,6 +88,6 @@ bool FreightList::editFreight(string id, string location, string time) {
 	return false;
 }
 
-vector<Freight> FreightList::getFreight() const{
+const vector<Freight>& FreightList::getFreight() const {
 	return freights;
 }

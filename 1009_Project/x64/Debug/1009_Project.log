@@ -1,2 +1,8 @@
-﻿  main.cpp
-  1009_Project.vcxproj -> C:\Users\Bryan\School\1009\1009_Project\x64\Debug\1009_Project.exe
+﻿  Assignment.cpp
+  CargoList.cpp
+  FreightList.cpp
+  Scheduler.cpp
+  main.cpp
+  Generating Code...
+C:\Users\bryti\Downloads\OOP-ver1 (2)\OOP-ver1\OOP-ver1\FreightList.cpp(57,1): warning C4715: 'FreightList::saveToFile': not all control paths return a value
+  1009_Project.vcxproj -> C:\Users\bryti\Downloads\OOP-ver1 (2)\OOP-ver1\OOP-ver1\x64\Debug\1009_Project.exe

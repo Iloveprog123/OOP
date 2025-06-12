@@ -87,6 +87,6 @@ bool CargoList::editCargo(string id, string location, string time) {
 	return false;
 }
 
-vector<Cargo> CargoList::getCargo() const{
+const vector<Cargo>& CargoList::getCargo() const{
 	return cargos;
 }
