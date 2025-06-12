@@ -17,6 +17,7 @@ public:
 	void setID(std::string);
 	void setLocation(std::string);
 	void setTime(std::string);
+	virtual void printDetails() const;
 };
 
 

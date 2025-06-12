@@ -1,5 +1,6 @@
 #include "TransportEntity.h"
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -25,6 +26,10 @@ void TransportEntity::setLocation(string x) {
 
 void TransportEntity::setTime(string x) {
 	time = x;
+}
+
+void TransportEntity::printDetails() const{
+	cout << "ID: " << id << ", Location: " << location << ", Time: " << time;
 }
 
 TransportEntity::TransportEntity(string id, string location, string time) : id(id), location(location), time(time) {}

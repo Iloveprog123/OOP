@@ -3,7 +3,9 @@
 
 class Cargo :
     public TransportEntity
-{public:
+{
+public:
     Cargo(std::string id, std::string location, std::string time) : TransportEntity(id, location, time) {}      //constructor
+    void printDetails() const;
 };
 

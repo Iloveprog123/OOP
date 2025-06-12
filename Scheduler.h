@@ -5,9 +5,11 @@
 class Scheduler {
 private:
     Assignment* currentAssignment;
+    std::string filePath;
 
     bool isAssigned(const Cargo* cargo) const;
     bool isAssigned(const Freight* freight) const;
+
 
 public:
     Scheduler(Assignment* assignment) : currentAssignment(assignment) {}
@@ -19,4 +21,5 @@ public:
     std::vector<Cargo*> getUnassignedCargo() const;
     std::vector<Freight*> getUnassignedFreight() const;
     const std::vector<std::pair<Cargo*, Freight*>>& getAssignments() const;
+    bool saveToFile(const std::string path = "");
 };

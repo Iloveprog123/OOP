@@ -37,7 +37,7 @@ bool CargoList::saveToFile(string path) {
 	filePath = path.empty() ? filePath : path;
 
 	if (filePath.empty()) {
-		std::cerr << "No file path specified!" << std::endl;
+		cerr << "No file path specified!" << endl;
 		return false;
 	}
 
@@ -76,8 +76,8 @@ bool CargoList::deleteCargo(string id) {
 	return false;
 }
 
-bool CargoList::editCargo(string id, string location, string time) {
-	for (auto cargo : cargos) {															//loop through cargo vector until ID match
+bool CargoList::editCargo(string id, string location, string time) { // Update all
+	for (auto cargo : cargos) {															
 		if (cargo.getID() == id) {
 			cargo.setLocation(location);
 			cargo.setTime(time);
@@ -86,6 +86,26 @@ bool CargoList::editCargo(string id, string location, string time) {
 	}
 	return false;
 }
+
+/*bool CargoList::editCargo(string id, string location) { // Only update location
+	for (auto& cargo : cargos) {
+		if (cargo.getID() == id) {
+			cargo.setLocation(location);
+			return true;
+		}
+	}
+	return false;
+}
+
+bool CargoList::editCargo(string id, string time) { // Only update time
+	for (auto& cargo : cargos) {
+		if (cargo.getID() == id) {
+			cargo.setTime(time); 
+			return true;
+		}
+	}
+	return false;
+} */
 
 const vector<Cargo>& CargoList::getCargo() const{
 	return cargos;

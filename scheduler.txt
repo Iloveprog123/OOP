@@ -1,0 +1,8 @@
+CargoID,FreightID,Location,Time
+C001,F106,New York,1030
+C003,F104,Chicago,1415
+C004,F105,China,0900
+C007,F107,Barbados,1200
+C008,F109,Laos,1300
+C009,F108,Argentina,1000
+C010,F110,Uruguay,1600

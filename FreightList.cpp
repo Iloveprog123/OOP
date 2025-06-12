@@ -35,26 +35,27 @@ bool FreightList::loadFromFile(string path) {
 
 bool FreightList::saveToFile(string path) {
 
-	if (path.empty()) {
-		if (filePath.empty()) {
-			cerr << "No file path specified and no previously loaded file!" << endl;
-			return false;
-		}
+	filePath = path.empty() ? filePath : path;
 
-		ofstream outputFile(path);
-		if (!outputFile.is_open()) {
-			cerr << "Error saving file!" << endl;
-			return false;
-		}
-
-		for (auto freight : freights) {
-			outputFile << freight.getID() << "," << freight.getLocation() << "," << freight.getTime() << "\n";				//loop through freight vector and save all updated attributes
-		}
-
-		outputFile.close();
-		return true;
+	if (filePath.empty()) {
+		cerr << "No file path specified!" << endl;
+		return false;
 	}
+
+	ofstream outputFile(filePath);
+	if (!outputFile.is_open()) {
+		cerr << "Error saving file!" << endl;
+		return false;
+	}
+
+	for (auto freight : freights) {
+		outputFile << freight.getID() << "," << freight.getLocation() << "," << freight.getTime() << "\n";				//loop through cargo vector and save all updated attributes
+	}
+
+	outputFile.close();
+	return true;
 }
+
 
 bool FreightList::addFreight(Freight freight) {
 	for (auto existing : freights) {
@@ -77,8 +78,8 @@ bool FreightList::deleteFreight(string id) {
 	return false;
 }
 
-bool FreightList::editFreight(string id, string location, string time) {
-	for (auto freight : freights) {															//loop through freight vector until ID match
+bool FreightList::editFreight(string id, string location, string time) { // Update all
+	for (auto freight : freights) {
 		if (freight.getID() == id) {
 			freight.setLocation(location);
 			freight.setTime(time);
@@ -87,6 +88,26 @@ bool FreightList::editFreight(string id, string location, string time) {
 	}
 	return false;
 }
+
+/*bool FreightList::editFreight(string id, string location) { // Only update location
+	for (auto& freight : freights) {
+		if (freight.getID() == id) {
+			freight.setLocation(location);
+			return true;
+		}
+	}
+	return false;
+}
+
+bool FreightList::editFreight(string id, string time) { // Only update time
+	for (auto& freight : freights) {
+		if (freight.getID() == id) {
+			freight.setTime(time);
+			return true;
+		}
+	}
+	return false;
+} */
 
 const vector<Freight>& FreightList::getFreight() const {
 	return freights;

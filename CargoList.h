@@ -13,7 +13,9 @@ private:
 public:
 	bool addCargo(Cargo);
 	bool deleteCargo(std::string);
-	bool editCargo(std::string, std::string, std::string);
+	bool editCargo(std::string id, std::string location, std::string time); // Updates all
+	//bool editCargo(std::string id, std::string location); // Updates only location
+	//bool editCargo(std::string id, std::string time);     // Updates only time
 	const std::vector<Cargo>& getCargo() const;
 	bool loadFromFile(std::string);
 	bool saveToFile(std::string path = "");

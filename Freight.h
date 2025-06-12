@@ -6,5 +6,6 @@ class Freight :
 {
 public:
     Freight(std::string id, std::string location, std::string time) : TransportEntity(id, location, time){}         //constructor
+    void printDetails() const;
 };
 

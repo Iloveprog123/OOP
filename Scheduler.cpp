@@ -1,4 +1,10 @@
 #include "Scheduler.h"
+#include <string>
+#include <iostream>
+#include <sstream>
+#include <fstream>
+
+using namespace std;
 
 void Scheduler::generateSchedule() {
     currentAssignment->assignments.clear();
@@ -54,8 +60,8 @@ bool Scheduler::isFreightAssigned(const Freight* freight) const {
     return isAssigned(freight);
 }
 
-std::vector<Cargo*> Scheduler::getUnassignedCargo() const {
-    std::vector<Cargo*> unassigned;
+vector<Cargo*> Scheduler::getUnassignedCargo() const {
+    vector<Cargo*> unassigned;
     const auto& cargos = currentAssignment->getCargo()->getCargo();
     for (const auto& cargo : cargos) {
         if (!isAssigned(&cargo)) {
@@ -65,8 +71,8 @@ std::vector<Cargo*> Scheduler::getUnassignedCargo() const {
     return unassigned;
 }
 
-std::vector<Freight*> Scheduler::getUnassignedFreight() const {
-    std::vector<Freight*> unassigned;
+vector<Freight*> Scheduler::getUnassignedFreight() const {
+    vector<Freight*> unassigned;
     const auto& freights = currentAssignment->getFreight()->getFreight();
     for (const auto& freight : freights) {
         if (!isAssigned(&freight)) {
@@ -76,6 +82,39 @@ std::vector<Freight*> Scheduler::getUnassignedFreight() const {
     return unassigned;
 }
 
-const std::vector<std::pair<Cargo*, Freight*>>& Scheduler::getAssignments() const {
+const vector<pair<Cargo*, Freight*>>& Scheduler::getAssignments() const {
     return currentAssignment->assignments;
 }
+
+bool Scheduler::saveToFile(string path) {
+    filePath = path.empty() ? filePath : path;
+
+    if (filePath.empty()) {
+        cerr << "No file path specified!" << endl;
+        return false;
+    }
+
+    ofstream outputFile(filePath);
+    if (!outputFile.is_open()) {
+        cerr << "Error saving file!" << endl;
+        return false;
+    }
+
+    const auto& assignments = currentAssignment->assignments;
+    if (assignments.empty()) {
+        outputFile << "No assignments exist.\n";
+    }
+    else {
+        outputFile << "CargoID,FreightID,Location,Time\n";
+        for (const auto& pair : assignments) {
+            outputFile << pair.first->getID() << ","
+                << pair.second->getID() << ","
+                << pair.first->getLocation() << ","
+                << pair.first->getTime() << "\n";
+        }
+    }
+
+    outputFile.close();
+    return true;
+}
+

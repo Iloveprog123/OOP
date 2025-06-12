@@ -1,10 +1,11 @@
 F101,London,0800
-F102,Tokyo,15:30
+F102,Tokyo,1530
 F103,Sydney,2215
 F104,Chicago,1415
 F105,China,0900
 F106,New York,1030
 F107,Barbados,1200
 F108,Argentina,1000
-F109,Laos,1300,
+F109,Laos,1300
 F110,Uruguay,1600
+F01,Israel,1900
