@@ -10,12 +10,10 @@ private:
     bool isAssigned(const Freight* freight) const;
 
 public:
-    explicit Scheduler(Assignment* assignment) : currentAssignment(assignment) {}
-
+    Scheduler(Assignment* assignment) : currentAssignment(assignment) {}
     void generateSchedule();
     void addPairing(Cargo* c, Freight* f);
     void clearAssignments();
-
     bool isCargoAssigned(const Cargo* cargo) const;
     bool isFreightAssigned(const Freight* freight) const;
     std::vector<Cargo*> getUnassignedCargo() const;
